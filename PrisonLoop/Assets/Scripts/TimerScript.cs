@@ -24,6 +24,7 @@ public class Timer : MonoBehaviour
     private float TimeOffeset = 480.0f;
     public float CurrentTime { get; set; }
     private int CurrentEventIndex = 0;
+    public static Action OnSceneChange;
     [System.Serializable]
     public struct TimetableEvent
     {
@@ -47,7 +48,7 @@ public class Timer : MonoBehaviour
         if (CurrentEventIndex < timetable.Count && CurrentTime >= timetable[CurrentEventIndex].EventTime)
         {
             SceneManager.LoadScene(timetable[CurrentEventIndex].SceneName);
-            
+            OnSceneChange?.Invoke();
             CurrentEventIndex++;
         }
         

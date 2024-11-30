@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FreeTIme.unity
     guid: ac01f44e4e10ce448bdf8d2047af6513
   - enabled: 1
-    path: Assets/Scenes/RoleCall.unity
+    path: Assets/Scenes/RollCall.unity
     guid: 8f8c9d95cf7652948b9d656f81a81ef7
   - enabled: 1
     path: Assets/Scenes/Work.unity

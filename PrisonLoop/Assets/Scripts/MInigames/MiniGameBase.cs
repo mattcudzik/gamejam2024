@@ -8,6 +8,4 @@ namespace MInigames
         public static Action onMiniGameStart;
         public static Action onMiniGameEnd;
     }
-    
-    
 }

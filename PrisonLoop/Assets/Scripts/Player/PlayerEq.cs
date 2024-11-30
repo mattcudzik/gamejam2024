@@ -18,7 +18,7 @@ public class PlayerEq : MonoBehaviour
     {
         if (items.Remove(item))
         {
-            capacity -= item.Size;
+            capacity += item.Size;
             OnItemDrop?.Invoke();
             return true;
         }

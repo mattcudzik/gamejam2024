@@ -95,11 +95,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 20
     m_Right: 0
-    m_Top: 0
+    m_Top: 10
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 4
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -123,6 +123,7 @@ MonoBehaviour:
   items: []
   tilePrefab: {fileID: 6847810027156470147, guid: 30a416e9a4d3e504f8888c641b6f85b5, type: 3}
   contentTransform: {fileID: 47640047660334352}
+  interactionKey: 113
 --- !u!1 &2516719815552796660
 GameObject:
   m_ObjectHideFlags: 0

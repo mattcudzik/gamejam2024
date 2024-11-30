@@ -8,10 +8,14 @@ public class ItemGridManager : MonoBehaviour
     public GameObject tilePrefab;                  // Prefab kafelka
     public Transform contentTransform;             // Referencja do Content w Grid Layout
     private Vector2 baseSize; // Domyœlny rozmiar kafelka (wyci¹gniêty z prefabrykatu)
+    [SerializeField] private KeyCode interactionKey = KeyCode.Q;
+    private PlayerEq playerEq;
+    private int currentIdx = 0;
 
     void Start()
     {
-        items = GameManager.Instance.PlayerEq.GetItems();
+        playerEq = GameManager.Instance.PlayerEq;
+        items = playerEq.GetItems();
         PlayerEq.OnItemAdd += PopulateGrid;
         PlayerEq.OnItemDrop += PopulateGrid;
 
@@ -20,7 +24,37 @@ public class ItemGridManager : MonoBehaviour
 
         PopulateGrid();
     }
+    private void Update()
+    {
+        var updateView = false;
+        if (Input.GetKeyDown(interactionKey))
+        {
+            updateView |= playerEq.removeItem(items[currentIdx]); ;
+        }
 
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scroll != 0)
+        {
+            if (scroll > 0f)
+            {
+                if (currentIdx > 0)
+                    currentIdx--;
+
+            }
+            else if (scroll < 0f)
+            {
+                if (currentIdx < items.Count-1)
+                    currentIdx++;
+            }
+            updateView = true;
+        }
+        if (updateView)
+        {
+            PopulateGrid();
+        }
+        
+    }
     void PopulateGrid()
     {
         // Usuñ istniej¹ce kafelki
@@ -30,20 +64,24 @@ public class ItemGridManager : MonoBehaviour
         }
 
         // Dodaj kafelek dla ka¿dego elementu
+        int idx = 0;
         foreach (var item in items)
         {
             GameObject newTile = Instantiate(tilePrefab, contentTransform);
 
-            // Ustaw Sprite elementu
             Image spriteImage = newTile.transform.Find("Image").GetComponent<Image>();
+            if (currentIdx == idx)
+            {
+                Image spriteImageBg = newTile.transform.Find("Bg").GetComponent<Image>();
+                Color currentColor = spriteImageBg.color;
+                currentColor.a = 150.0f;
+                spriteImageBg.color = currentColor;
+            }
             spriteImage.sprite = item.Sprite;
 
             RectTransform rectTransform = newTile.GetComponent<RectTransform>();
             rectTransform.sizeDelta = new Vector2(baseSize.x, baseSize.y * Mathf.Max(1, item.Size));
-
-            // Opcjonalnie: Ustaw nazwê elementu jako tekst
-            //Text textComponent = newTile.transform.Find("Text").GetComponent<Text>();
-            //textComponent.text = item.Type.ToString(); // Nazwa typu elementu
+            idx++;
         }
     }
 }

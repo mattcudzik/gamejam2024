@@ -62,8 +62,8 @@ public class InteractableItem : MonoBehaviour, IInteractable
     }
 
     // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-
+        PlayerEq.OnItemDrop -= UpdateColor;
     }
 }

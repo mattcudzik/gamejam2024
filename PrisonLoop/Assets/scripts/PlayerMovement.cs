@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Odczyt osi wej�ciowych
         float horizontal = Input.GetAxis("Horizontal");
@@ -26,11 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Tworzenie wektora ruchu
         movement = new Vector2(horizontal, vertical).normalized;
-    }
 
-    private void FixedUpdate()
-    {
         // Poruszanie gracza
-        rb.linearVelocity = movement * moveSpeed;
+        rb.linearVelocity = movement * moveSpeed * Time.deltaTime;
     }
 }

@@ -1,13 +1,23 @@
+using System;
 using UnityEngine;
 
 public class InteractableBox : MonoBehaviour, IInteractable
 {
     public SpriteRenderer sr;
     public Color iteractColor;
-
+    [SerializeField] public GameObject MinigamePrefab;
+    public GameObject minigameInstance;
+    private Boolean interactable = true;
     public void Interact()
     {
-        sr.color = iteractColor;
+        if (interactable)
+        {
+            Vector3 position = Vector3.zero;
+            minigameInstance = Instantiate(MinigamePrefab, position, Quaternion.identity);
+            interactable = false;
+        }
+
+       
     }
 
     public void OnPlayerEnter()

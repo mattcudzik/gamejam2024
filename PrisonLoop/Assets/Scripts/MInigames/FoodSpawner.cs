@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using MInigames;
 
-public class FoodSpawner : MonoBehaviour
+public class FoodSpawner : MiniGameBase
 {
     [Header("Food Settings")]
     [SerializeField] private List<GameObject> foodPrefabs;
@@ -10,8 +11,7 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private Transform spawnArea; 
 
     private List<GameObject> activeFoods = new List<GameObject>();
-
-    public System.Action OnMingameFinished;
+    
     private void Start()
     {
         SpawnInitialFoods();
@@ -43,7 +43,8 @@ public class FoodSpawner : MonoBehaviour
             activeFoods.Remove(foodInstance);
             if (activeFoods.Count == 0)
             {
-                OnMingameFinished?.Invoke();
+                onMiniGameEnd?.Invoke();
+                Destroy(gameObject);
             }
         };
     }

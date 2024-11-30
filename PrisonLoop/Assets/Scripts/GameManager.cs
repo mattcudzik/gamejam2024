@@ -4,6 +4,8 @@ class GameManager: MonoBehaviour
     public static GameManager Instance;
 
     public PlayerEq PlayerEq;
+    public Timer Timer  {get; set;}
+        
     void Awake()
     {
         if (Instance == null)
@@ -17,6 +19,7 @@ class GameManager: MonoBehaviour
         }
 
         PlayerEq = GetComponentInChildren<PlayerEq>();
+        Timer = GetComponentInChildren<Timer>();
     }
 }
 

@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
     //21:00 - Sen  -> 780
     
     private float TimeOffeset = 480.0f;
-    private float CurrentTime;
+    public float CurrentTime { get; set; }
     private int CurrentEventIndex = 0;
     [System.Serializable]
     public struct TimetableEvent

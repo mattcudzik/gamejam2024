@@ -1,12 +1,12 @@
 using UnityEngine;
-class PersistentObject: MonoBehaviour
+class GameManager: MonoBehaviour
 {
-    private static PersistentObject instance;
+    public static GameManager Instance;
     void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else

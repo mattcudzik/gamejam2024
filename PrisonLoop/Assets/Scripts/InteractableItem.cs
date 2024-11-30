@@ -15,7 +15,7 @@ public class InteractableItem : MonoBehaviour, IInteractable
     public void Interact()
     {
         sr.color = iteractColor;
-        var eq = FindAnyObjectByType<PlayerEq>();
+        var eq = GameManager.Instance.PlayerEq;
         if (eq.CanGetItem(Item))
         { 
             if(eq.addItem(Item))Debug.Log("Added");
@@ -36,7 +36,7 @@ public class InteractableItem : MonoBehaviour, IInteractable
     {
         if(interacting)
         {
-            var eq = FindAnyObjectByType<PlayerEq>();
+            var eq = GameManager.Instance.PlayerEq;
             if (eq.CanGetItem(Item))
                 sr.color = Color.blue;
             else

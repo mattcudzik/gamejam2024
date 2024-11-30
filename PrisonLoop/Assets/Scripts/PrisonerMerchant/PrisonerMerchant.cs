@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PrisonerMerchant : MonoBehaviour, IInteractable
 {
+    public TradePoolSO tradePool;
     public TradeOffer tradeOffer;
     public TradeUI tradeUI;
     SpriteRenderer spriteRenderer;
@@ -10,6 +11,7 @@ public class PrisonerMerchant : MonoBehaviour, IInteractable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        tradeOffer = tradePool.GetRandomOffer();
         spriteRenderer = GetComponent<SpriteRenderer>();
         tradeUI.SetUp(tradeOffer);
     }

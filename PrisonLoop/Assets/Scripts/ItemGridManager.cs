@@ -8,10 +8,9 @@ public class ItemGridManager : MonoBehaviour
     public GameObject tilePrefab;                  // Prefab kafelka
     public Transform contentTransform;             // Referencja do Content w Grid Layout
     private Vector2 baseSize; // Domyœlny rozmiar kafelka (wyci¹gniêty z prefabrykatu)
-    [SerializeField] private KeyCode interactionKey = KeyCode.Q;
+    [SerializeField] private KeyCode interactionKey = KeyCode.E;
     private PlayerEq playerEq;
     private int currentIdx = 0;
-
     void Start()
     {
         playerEq = GameManager.Instance.PlayerEq;
@@ -24,37 +23,36 @@ public class ItemGridManager : MonoBehaviour
 
         PopulateGrid();
     }
+
     private void Update()
     {
-        var updateView = false;
-        if (Input.GetKeyDown(interactionKey))
+        var shouldUpdate = false;
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            updateView |= playerEq.removeItem(items[currentIdx]); ;
+            shouldUpdate |= playerEq.removeItem(items[currentIdx]);
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scroll != 0)
-        {
-            if (scroll > 0f)
-            {
-                if (currentIdx > 0)
-                    currentIdx--;
+        shouldUpdate |= scroll != 0;
 
-            }
-            else if (scroll < 0f)
-            {
-                if (currentIdx < items.Count-1)
-                    currentIdx++;
-            }
-            updateView = true;
+        if (scroll > 0f)
+        {
+            if(currentIdx>0)
+                currentIdx--;
         }
-        if (updateView)
+        else if (scroll < 0f)
+        {
+            if (currentIdx < items.Count -1)
+                currentIdx++;
+        }
+
+        if (shouldUpdate)
         {
             PopulateGrid();
         }
-        
     }
+
     void PopulateGrid()
     {
         // Usuñ istniej¹ce kafelki
@@ -81,6 +79,14 @@ public class ItemGridManager : MonoBehaviour
 
             RectTransform rectTransform = newTile.GetComponent<RectTransform>();
             rectTransform.sizeDelta = new Vector2(baseSize.x, baseSize.y * Mathf.Max(1, item.Size));
+            if (currentIdx == idx)
+            {
+                Image spriteImageBg = newTile.transform.Find("Bg").GetComponent<Image>();
+                Color currentColor = spriteImageBg.color;
+                currentColor.a = 150;
+                spriteImageBg.color = currentColor;
+                
+            }
             idx++;
         }
     }

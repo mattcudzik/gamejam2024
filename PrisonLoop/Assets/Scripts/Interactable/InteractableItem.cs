@@ -12,6 +12,11 @@ public class InteractableItem : MonoBehaviour, IInteractable
         PlayerEq.OnItemDrop += UpdateColor;
     }
 
+    public void OnDestroy()
+    {
+        PlayerEq.OnItemDrop -= UpdateColor;
+    }
+
     public void Interact()
     {
         sr.color = iteractColor;

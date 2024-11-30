@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 5f; // Pr�dko�� poruszania
+    [SerializeField] private float moveSpeed = 5f; // Prędkość poruszania
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -20,14 +20,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Odczyt osi wej�ciowych
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // Tworzenie wektora ruchu
         movement = new Vector2(horizontal, vertical).normalized;
 
-        // Poruszanie gracza
-        rb.linearVelocity = movement * moveSpeed * Time.deltaTime;
+        rb.linearVelocity = movement * moveSpeed;
     }
 }

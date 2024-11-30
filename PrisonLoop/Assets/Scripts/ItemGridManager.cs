@@ -15,6 +15,12 @@ public class ItemGridManager : MonoBehaviour
     {
         playerEq = GameManager.Instance.PlayerEq;
         items = playerEq.GetItems();
+        
+        if (items.Count == 0)
+        {
+            currentIdx = -1;
+        }
+
         PlayerEq.OnItemAdd += PopulateGrid;
         PlayerEq.OnItemDrop += PopulateGrid;
 
@@ -27,9 +33,17 @@ public class ItemGridManager : MonoBehaviour
     private void Update()
     {
         var shouldUpdate = false;
-        if (Input.GetKeyDown(interactionKey))
+        if (Input.GetKeyDown(interactionKey) && currentIdx!=-1)
         {
             shouldUpdate |= playerEq.removeItem(items[currentIdx]);
+            if (items.Count == 0)
+            {
+                currentIdx = -1;
+            }
+            if (currentIdx == items.Count - 1)
+            {
+                currentIdx--;
+            }
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");

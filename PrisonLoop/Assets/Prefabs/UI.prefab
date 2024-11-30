@@ -1,5 +1,84 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5753490443103658492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7542800711135242532}
+  - component: {fileID: 944754227759227688}
+  - component: {fileID: 8270846962273811080}
+  m_Layer: 5
+  m_Name: EqUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7542800711135242532
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753490443103658492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8653684464694543987}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &944754227759227688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753490443103658492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 20
+    m_Right: 0
+    m_Top: 10
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 10
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &8270846962273811080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753490443103658492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4902cdbf3bd09a54089a6d552fdfb446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  tilePrefab: {fileID: 6847810027156470147, guid: 30a416e9a4d3e504f8888c641b6f85b5, type: 3}
+  contentTransform: {fileID: 7542800711135242532}
+  interactionKey: 113
 --- !u!1 &6716373796146039075
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +90,8 @@ GameObject:
   - component: {fileID: 983557056246545959}
   - component: {fileID: 1042237142643071508}
   - component: {fileID: 9021695902152642392}
-  m_Layer: 0
+  - component: {fileID: 3996977449031817632}
+  m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,6 +216,32 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3996977449031817632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716373796146039075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea827b55f69d5e4d864622ddc05823d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 9021695902152642392}
+  timerSpeed: 1
+  startTime: 0
+  timetable:
+  - SceneName: FreeTime
+    EventTime: 360
+  - SceneName: Meal
+    EventTime: 30
+  - SceneName: Meal
+    EventTime: 720
+  - SceneName: RoleCall
+    EventTime: 780
+  - SceneName: Work
+    EventTime: 180
 --- !u!1 &6929227848201063419
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +253,7 @@ GameObject:
   - component: {fileID: 7630665996552171659}
   - component: {fileID: 5810169655451933816}
   - component: {fileID: 6396785234708193660}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Timetable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +391,7 @@ GameObject:
   - component: {fileID: 8790140422745425174}
   - component: {fileID: 6281071794667934156}
   - component: {fileID: 6222460861018964807}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,6 +412,7 @@ RectTransform:
   m_Children:
   - {fileID: 7630665996552171659}
   - {fileID: 983557056246545959}
+  - {fileID: 7542800711135242532}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -348,12 +455,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

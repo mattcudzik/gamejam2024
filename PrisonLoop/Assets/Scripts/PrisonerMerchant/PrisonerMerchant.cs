@@ -17,7 +17,7 @@ public class PrisonerMerchant : MonoBehaviour, IInteractable
     {
         //Try to buy item with every item form Eq 
         
-        if(TryToTrade(ItemEnum.Apple));
+        if(GameManager.Instance.PlayerEq.ContainsItem(tradeOffer.desiredItem));
         
         throw new System.NotImplementedException();
     }

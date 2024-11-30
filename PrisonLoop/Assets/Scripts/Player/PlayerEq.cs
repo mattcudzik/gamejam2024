@@ -53,9 +53,11 @@ public class PlayerEq : MonoBehaviour
         return false;
     }
 
-    void Start()
+    public bool ContainsItem(ItemEnum itemEnum)
     {
-        
+        if (items.Find(item => item.Type == itemEnum)) return true;
+        return false;
+
     }
 
     // Update is called once per frame

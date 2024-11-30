@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tradeOffer:
-    desiredItem: 0
-    offeredItem: {fileID: 0}
+    desiredItem: 8
+    offeredItem: {fileID: 11400000, guid: c16275ea3ffa1624aa083878726df7e3, type: 2}
 --- !u!58 &365060085
 CircleCollider2D:
   m_ObjectHideFlags: 0

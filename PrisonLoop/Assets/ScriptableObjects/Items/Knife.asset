@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d78821b99125041971dd1b89f4c030, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
-  Size: 1
+  Size: 4
   Type: 0
-  Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}

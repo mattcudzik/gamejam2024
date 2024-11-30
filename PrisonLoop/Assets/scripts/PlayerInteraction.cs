@@ -20,7 +20,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         // Sprawdü, czy obiekt posiada komponent implementujπcy IInteractable
         IInteractable interactable = collision.gameObject.GetComponent<IInteractable>();
-        if (interactable != null)
+        if (currentInteractable==null && interactable != null)
         {
             currentInteractable = interactable;
             interactable.OnPlayerEnter();

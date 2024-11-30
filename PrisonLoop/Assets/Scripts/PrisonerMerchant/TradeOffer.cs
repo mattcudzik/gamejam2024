@@ -1,6 +1,6 @@
 [System.Serializable]
 public class TradeOffer
 {
-    public ItemEnum desiredItem;
+    public ItemSO desiredItem;
     public ItemSO offeredItem;
 }

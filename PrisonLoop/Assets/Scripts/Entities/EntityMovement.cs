@@ -43,4 +43,9 @@ public class EntityMovement : MonoBehaviour
         agent.SetDestination(target.position);
     }
     
+    public void SetTarget(Vector3 target)
+    {
+        agent.SetDestination(target);
+    }
+    
 }

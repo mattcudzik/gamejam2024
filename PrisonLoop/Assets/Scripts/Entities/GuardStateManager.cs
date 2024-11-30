@@ -3,8 +3,10 @@ using UnityEngine;
 public class GuardStateManager : EntityStateManager
 {
     [SerializeField] private Transform[] pathRoute;
+    [SerializeField] public float TimeToLookAround;
     private int currentPathPoint;
-    public EntityMovement entityMovement { get; set; } 
+    public EntityMovement entityMovement { get; set; }
+    
 
     void Start()
     {
@@ -28,6 +30,7 @@ public class GuardStateManager : EntityStateManager
         return pathRoute[currentPathPoint];
     }
     
+    public float GetTimeToLookAround() => TimeToLookAround;
     
 
 }

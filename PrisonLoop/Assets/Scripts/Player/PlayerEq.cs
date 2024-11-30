@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerEq : MonoBehaviour
@@ -11,6 +12,8 @@ public class PlayerEq : MonoBehaviour
     public int capacity;
     private int currentCapacity;
 
+    public TextMeshProUGUI resultText;
+
     private List<ItemSO> items = new List<ItemSO>();
 
     public bool removeItem(ItemSO item)
@@ -19,6 +22,7 @@ public class PlayerEq : MonoBehaviour
         {
             capacity -= item.Size;
             OnItemDrop?.Invoke();
+            updateEqView();
             return true;
         }
 
@@ -32,6 +36,7 @@ public class PlayerEq : MonoBehaviour
             items.Add(item);
             currentCapacity += item.Size;
             OnItemAdd?.Invoke();
+            updateEqView();
             return true;
         }
         return false;
@@ -57,5 +62,22 @@ public class PlayerEq : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void updateEqView()
+    {
+        resultText.text = GetEqStr();
+    }
+
+    public string GetEqStr()
+    {
+        string result = "Ekwipunek "+currentCapacity+"/"+capacity+"\n";
+        int idx = 1;
+        foreach(ItemSO item in items)
+        { 
+            result += "["+idx++ +"] " + item.toStr() + "\n";
+        }
+        
+        return result;
     }
 }

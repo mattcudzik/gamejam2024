@@ -65,10 +65,5 @@ public class InteractableItem : MonoBehaviour, IInteractable
         sr.sprite = Item.Sprite;
         sr.color = Color.white;
     }
-
-    // Update is called once per frame
-    void OnDestroy()
-    {
-        PlayerEq.OnItemDrop -= UpdateColor;
-    }
+ 
 }

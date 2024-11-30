@@ -8,7 +8,7 @@ public class ItemGridManager : MonoBehaviour
     public GameObject tilePrefab;                  // Prefab kafelka
     public Transform contentTransform;             // Referencja do Content w Grid Layout
     private Vector2 baseSize; // Domyœlny rozmiar kafelka (wyci¹gniêty z prefabrykatu)
-    [SerializeField] private KeyCode interactionKey = KeyCode.E;
+    [SerializeField] private KeyCode interactionKey = KeyCode.Q;
     private PlayerEq playerEq;
     private int currentIdx = 0;
     void Start()
@@ -27,7 +27,7 @@ public class ItemGridManager : MonoBehaviour
     private void Update()
     {
         var shouldUpdate = false;
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(interactionKey))
         {
             shouldUpdate |= playerEq.removeItem(items[currentIdx]);
         }

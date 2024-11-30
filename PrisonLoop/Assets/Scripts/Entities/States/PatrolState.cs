@@ -1,3 +1,4 @@
+using Entities.States;
 using UnityEngine;
 
 public class PatrolState : IState
@@ -19,13 +20,12 @@ public class PatrolState : IState
         //check if point reached 
         if (_entityMovement.HasReachedTarget())
         {
-            _stateManager.SwitchState(new PatrolState(_stateManager, _stateManager.GetNextPathPoint()));
+            _stateManager.SwitchState(new LookAroundState(_stateManager, _stateManager.TimeToLookAround));
         }
     }
 
     public override void EnterState()
     {
-        
         _entityMovement.StartAgent();
     }
 

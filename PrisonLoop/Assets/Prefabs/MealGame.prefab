@@ -74,12 +74,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 780}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -248,6 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3325651867005372019}
   - component: {fileID: 7499902252537375113}
+  - component: {fileID: 2952659989045834061}
   m_Layer: 0
   m_Name: MealGame
   m_TagString: Untagged
@@ -314,7 +315,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -471042215
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.59134924, g: 0.6400596, b: 0.9245283, a: 1}
@@ -327,6 +328,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2952659989045834061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606085818605393975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016c8fba722c6684587430204a44a79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodPrefabs:
+  - {fileID: 5164265831365188721, guid: b330ebb7ec70e5b48a7ac990202749a8, type: 3}
+  - {fileID: 5288820326308161667, guid: 763bb8734eb0ac94ba4d90d24af7567b, type: 3}
+  - {fileID: 3694339714430711272, guid: 1ca42787011c3cd4eac2bb83a515102b, type: 3}
+  initialSpawnCount: 10
+  spawnArea: {fileID: 1996956052086674988}
 --- !u!1001 &7109955796150578284
 PrefabInstance:
   m_ObjectHideFlags: 0

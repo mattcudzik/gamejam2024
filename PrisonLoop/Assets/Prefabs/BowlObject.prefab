@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -471042215
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.4264151, g: 0.4264151, b: 0.4264151, a: 1}
@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 8727201826958064192}
   - component: {fileID: 8114238232401422456}
   - component: {fileID: 4018845608147333926}
-  - component: {fileID: 5035559949696448524}
   m_Layer: 0
   m_Name: BowlObject
   m_TagString: Untagged
@@ -149,7 +148,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!68 &4018845608147333926
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -224,24 +223,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &5035559949696448524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4037570434326168926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016c8fba722c6684587430204a44a79e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodPrefabs:
-  - {fileID: 7666992986560142291, guid: faf7b2fd60f7d0e46baac55e90b4940a, type: 3}
-  - {fileID: 7666992986560142291, guid: 6b91eabe0b401a54ea01a570bacb52e1, type: 3}
-  - {fileID: 7666992986560142291, guid: 37e6c69c03ac24b4ea4fd02bed2cb209, type: 3}
-  initialSpawnCount: 10
-  spawnArea: {fileID: 8727201826958064192}
 --- !u!1 &5999456605346814276
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +297,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -471042215
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.8113208, g: 0.74549663, b: 0.74549663, a: 1}

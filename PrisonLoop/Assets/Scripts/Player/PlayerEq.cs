@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerEq : MonoBehaviour
@@ -36,7 +37,7 @@ public class PlayerEq : MonoBehaviour
         }
         return false;
     }
-
+    
     int getFreeCapacity()
     { 
         return capacity- currentCapacity;
@@ -48,14 +49,26 @@ public class PlayerEq : MonoBehaviour
         return false;
     }
 
-    void Start()
+    public bool ContainsItem(ItemEnum itemEnum)
     {
-        
+        if (items.Find(item => item.Type == itemEnum)) return true;
+        return false;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public string GetEqStr()
     {
+        string result = "Ekwipunek "+currentCapacity+"/"+capacity+"\n";
+        int idx = 1;
+        foreach(ItemSO item in items)
+        { 
+            result += "["+idx++ +"]  \n";
+        }
         
+        return result;
+    }
+    public List<ItemSO> GetItems()
+    {
+        return items;
     }
 }

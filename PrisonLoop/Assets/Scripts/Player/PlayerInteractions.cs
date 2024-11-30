@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour
+public class PlayerInteractions : MonoBehaviour
 {
     [Header("Interaction Settings")]
     [SerializeField] private KeyCode interactionKey = KeyCode.E; // Klawisz interakcji
@@ -20,7 +20,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         // Sprawdü, czy obiekt posiada komponent implementujπcy IInteractable
         IInteractable interactable = collision.gameObject.GetComponent<IInteractable>();
-        if (currentInteractable==null && interactable != null)
+        if (currentInteractable == null && interactable != null)
         {
             currentInteractable = interactable;
             interactable.OnPlayerEnter();

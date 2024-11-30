@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FpsMax : MonoBehaviour
+public class Fps : MonoBehaviour
 {
     public int target = 60;
     void Awake()

@@ -25,17 +25,9 @@ namespace Entities
                 currentState = new IdleState(this);
                 currentState.EnterState();
             }
-
-            PrisonerHelper ph = GetComponent<PrisonerHelper>();
-            if(ph!=null) ph.OnHelpBought += PerformHelpState;
-        }
-
-        private void PerformHelpState(HelpOffer helpOffer)
-        {
-            //TODO CUDZIK DODAJ STAN w oparci o helpOffer
-            Debug.Log(helpOffer.helpOption);
         }
 
         public NavMeshData MeshData => _meshData;
+
     }
 }

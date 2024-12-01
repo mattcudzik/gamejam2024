@@ -1,33 +1,43 @@
 using System;
+using Entities.States;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class GuardFOV : MonoBehaviour
 {
-    public float viewRadius = 5f; // Detection range
-    public float viewAngle = 90f; // Field of view angle
-    [SerializeField] public Transform target; // Reference to the player or target
-    [SerializeField] public Tilemap wallTilemap; // Reference to the tilemap with walls
+    public float viewRadius = 5f;
+    public float viewAngle = 90f;
+    private Transform target;
+    [SerializeField] public Tilemap wallTilemap;
     private EntityMovement _entityMovement;
-
+    private GuardStateManager _guardStateManager;
+    
     [SerializeField] private float rotationSpeed = 5f;
 
     [SerializeField] private  Vector2 viewDirection = Vector2.up;
 
-
-    private float t = 0f;
-
+    //Caught logic
+    public static Action onCaught;
+    
+    [SerializeField] private float caughtTime = 3f;
+    private float startCaughtTimer = 0f;
+    
     private void Start()
     {
         _entityMovement = GetComponent<EntityMovement>();
+        _guardStateManager = GetComponent<GuardStateManager>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
         if (IsTargetInFieldOfView())
         {
-            Debug.Log("Target detected!");
-            // Add your behavior here, like chasing the player
+            if (contrabandCheck())
+            {
+                onCaught.Invoke();
+                _guardStateManager.SwitchState(new CatchPlayerState(_guardStateManager));
+            }
         }
 
         Vector2 velocity = _entityMovement.agent.velocity.normalized;
@@ -38,11 +48,17 @@ public class GuardFOV : MonoBehaviour
         }
         else
         {
+            
             viewDirection = RotateVector2(viewDirection, rotationSpeed * Time.deltaTime);
         }
-        
-        
          
+    }
+
+    private bool contrabandCheck()
+    {
+        //TODO implement contraband check
+        //1. check if player has contraband in inventory startTimer 
+        //2. if digidig 
     }
 
     private bool IsTargetInFieldOfView()

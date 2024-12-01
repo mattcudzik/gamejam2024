@@ -139,4 +139,4 @@ MonoBehaviour:
   pathRoute:
   - {fileID: 0}
   - {fileID: 0}
-  TimeToLookAround: 0
+  TimeToLookAround: 10

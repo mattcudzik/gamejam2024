@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MiniGameBase.onMiniGameStart += FreezMovement;
         MiniGameBase.onMiniGameEnd += UnFreezMovement;
+        GuardFOV.onCaught += FreezMovement;
     }
 
     private void FreezMovement()

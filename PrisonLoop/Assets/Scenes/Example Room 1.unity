@@ -317,11 +317,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &970064339 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4015612019207378268, guid: 3ac6d3335f84c6d4180038a37ea7ad3d, type: 3}
-  m_PrefabInstance: {fileID: 1336254263}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1058661491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1152983335877354953, guid: 99fb14a966e34124fb2365af120b56ae, type: 3}
@@ -341,10 +336,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 5
   viewAngle: 60
-  target: {fileID: 970064339}
   wallTilemap: {fileID: 1808152887}
   rotationSpeed: 5
   viewDirection: {x: -1, y: -1}
+  caughtTime: 3
 --- !u!1 &1173888758
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,14 +670,14 @@ PrefabInstance:
     - target: {fileID: 2740483238832751963, guid: 1da4384a50cab094e8f35705ca5458cc, type: 3}
       propertyPath: Item
       value: 
-      objectReference: {fileID: 11400000, guid: 1e9ef2693d5b3484e8323d3e404b2c20, type: 2}
+      objectReference: {fileID: 11400000, guid: 19e7272bcd2e81f41b9b3662bd8029da, type: 2}
     - target: {fileID: 4243119199734617053, guid: 1da4384a50cab094e8f35705ca5458cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.41
       objectReference: {fileID: 0}
     - target: {fileID: 4243119199734617053, guid: 1da4384a50cab094e8f35705ca5458cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.62
+      value: -1.83
       objectReference: {fileID: 0}
     - target: {fileID: 4243119199734617053, guid: 1da4384a50cab094e8f35705ca5458cc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -735,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1152983335877354953, guid: 99fb14a966e34124fb2365af120b56ae, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1172209687753099810, guid: 99fb14a966e34124fb2365af120b56ae, type: 3}
       propertyPath: m_Enabled

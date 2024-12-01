@@ -50,7 +50,7 @@ public class EntityMovement : MonoBehaviour
     {
         if (agent == null || !agent.pathPending)
         {
-            if (agent.remainingDistance <= agent.stoppingDistance-1)
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {

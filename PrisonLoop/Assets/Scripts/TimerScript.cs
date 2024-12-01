@@ -28,9 +28,11 @@ public class Timer : MonoBehaviour
     private bool isTimerWait = false;
     private float TimeOffeset = 480.0f;
     private bool ParityDay = false;
+    private bool Slowed = false;
+    private float SlowDown = 0f;
     public float CurrentTime { get; set; }
     private int CurrentEventIndex = 0;
-    private string myReason = "";
+    public string myReason = "";
     public static Action OnSceneChange;
     [System.Serializable]
     public struct TimetableEvent
@@ -40,6 +42,8 @@ public class Timer : MonoBehaviour
     }
     private void Start()
     {
+        RollCallSlowDown(0.25f);
+        SlowDown += 2;
         CurrentTime = startTime;
         if (timerText == null)
         {
@@ -48,14 +52,25 @@ public class Timer : MonoBehaviour
         timetable.Sort((a, b) => a.EventTime.CompareTo(b.EventTime));
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //Change Scene
+        if (SceneManager.GetActiveScene().name == "RollCall" && !Slowed)
+        {
+            RollCallSlowDown();
+        }
+        else if(Slowed)
+        {
+            NormalSpeed();
+        }
+
         CurrentTime += Time.deltaTime * timerSpeed;
+        Debug.Log("Stan pracy");
+        Debug.Log(GameManager.Instance.IsSceneWorkDone);
         if (!isTimerWait)
         {
             if (CurrentEventIndex < timetable.Count && CurrentTime >= timetable[CurrentEventIndex].EventTime)
             {
+                
                 if (GameManager.Instance.IsSceneWorkDone)
                 {
                     if (ParityDay == true && timetable[CurrentEventIndex].SceneName == "Work")
@@ -87,25 +102,29 @@ public class Timer : MonoBehaviour
                 NextDay();
             }
         }
-        
-        
-        
-    }
-
-    private void OnDestroy()
-    {
-        
     }
 
     public void StartDelay(string reason)
     {
-        SceneManager.LoadScene("Delay");
         myReason=reason;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene("Delay");
         isTimerWait = true;
         timerWaitStart = CurrentTime;
     }
 
+    private void RollCallSlowDown(float factor=0.5f)
+    {
+        SlowDown += 1/factor;
+        timerSpeed *= factor;
+        Slowed = true;
+    }
+    private void NormalSpeed()
+    {
+        
+        timerSpeed *= SlowDown;
+        SlowDown = 0;
+        Slowed = false;
+    }
     public void NextDay()
     {
         if (GameManager.Instance.NextDay())
@@ -121,12 +140,6 @@ public class Timer : MonoBehaviour
             GameManager.Instance.UIActive(false);
         }
         
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        
-        GameObject.FindGameObjectWithTag("DelayText").GetComponent<DelayText>().SetText(myReason);
-        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     private void UpdateTimerText()
     {

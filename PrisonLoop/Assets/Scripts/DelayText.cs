@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -5,8 +6,13 @@ public class DelayText:MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI reasonText;
 
-    public void SetText(string text)
+    private void Awake()
     {
-        reasonText.text = text;
+        SetText();
+    }
+
+    public void SetText()
+    {
+        reasonText.text = GameManager.Instance.Timer.myReason;
     }
 }

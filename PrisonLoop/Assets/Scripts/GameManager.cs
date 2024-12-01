@@ -12,7 +12,7 @@ class GameManager: MonoBehaviour
     public PlayerEq PlayerEq{get; set;}
     public LevelManager LevelManagerInstance{get; set;}
     public int CurrentDay { get; set; } = 1;
-    private int MaxDay { get; set; } = 10;
+    public int MaxDay { get; set; } = 10;
     [SerializeField] private GameObject UI;
     public Timer Timer  {get; set;}
     [SerializeField] public TextMeshProUGUI Days;
@@ -70,6 +70,7 @@ class GameManager: MonoBehaviour
     private void WorkComplete()
     {
         IsSceneWorkDone = true;
+        Debug.Log("Work Complete");
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

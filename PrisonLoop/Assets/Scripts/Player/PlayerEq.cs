@@ -55,6 +55,14 @@ public class PlayerEq : MonoBehaviour
         return false;
 
     }
+    
+    public bool ContainsContraband()
+    {
+        if (items.Find(item => item.Contraband == true)) return true;
+        return false;
+
+    }
+    
 
     public string GetEqStr()
     {

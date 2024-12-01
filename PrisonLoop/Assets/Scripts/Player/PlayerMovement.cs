@@ -9,13 +9,31 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private bool freezePlayer = false;
+    private bool digging = false;
     void Awake()
     {
         MiniGameBase.onMiniGameStart += FreezMovement;
         MiniGameBase.onMiniGameEnd += UnFreezMovement;
+        MiniGameBase.onDigisStarted += StartDigging;
+        MiniGameBase.onDigiClosed += EndDigging;
         GuardFOV.onCaught += FreezMovement;
     }
 
+    private void EndDigging()
+    {
+        digging = false;
+    }
+
+    private void StartDigging()
+    {
+        digging = true;
+    }
+
+    public bool IsPlayerDigging()
+    {
+        return digging;
+    }
+    
     private void FreezMovement()
     {
         freezePlayer = true;

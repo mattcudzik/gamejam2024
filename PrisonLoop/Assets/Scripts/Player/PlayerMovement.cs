@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,9 +8,26 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    private bool freezePlayer = false;
+    void Awake()
+    {
+        MiniGameBase.onMiniGameStart += FreezMovement;
+        MiniGameBase.onMiniGameEnd += UnFreezMovement;
+    }
+
+    private void FreezMovement()
+    {
+        freezePlayer = true;
+    }
+
+    private void UnFreezMovement()
+    {
+        freezePlayer = false;
+    }
 
     void FixedUpdate()
     {
+        if(freezePlayer) return;
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 

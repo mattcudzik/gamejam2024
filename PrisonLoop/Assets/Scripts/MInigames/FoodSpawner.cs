@@ -13,6 +13,7 @@ public class FoodSpawner : MiniGameBase
     
     private void Start()
     {
+        onMiniGameStart?.Invoke();
         SpawnInitialFoods();
     }
 

@@ -9,8 +9,8 @@ public class QuickTimeEventGame : MiniGameBase
     public TMP_Text winMessage;                  // Komunikat o wygranej (TextMeshPro)
     public List<ProgressObject> progressObjects; // Lista obiektów (śrubek z paskami)
 
-    private string[] keyPool = { "A", "S", "D", "F" }; // Pula klawiszy
-    private string currentKey;                   // Aktualny klawisz
+    private List<KeyCode> keyPool = new List<KeyCode>(){ KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D }; // Pula klawiszy
+    private KeyCode currentKey;                   // Aktualny klawisz
     private int currentProgressObjectIndex = 0;  // Indeks aktualnie aktywnego obiektu
     public float keyDisplayDelay = 1.0f;         // Czas opóźnienia wyświetlenia klawisza
     public float reactionTime = 3.0f;            // Czas na reakcję gracza
@@ -19,6 +19,7 @@ public class QuickTimeEventGame : MiniGameBase
 
     void Start()
     {
+        onMiniGameStart?.Invoke();
         winMessage.gameObject.SetActive(false);
         keyDisplay.GetComponent<RectTransform>().localPosition =
             progressObjects[0].GetComponent<RectTransform>().localPosition + new Vector3(0, keyDisplayOffsetY, 0);
@@ -34,11 +35,11 @@ public class QuickTimeEventGame : MiniGameBase
 
     void Update()
     {
-        if (!string.IsNullOrEmpty(currentKey)) // Sprawdzanie, jeśli klawisz jest aktywny
+        if (currentKey!=KeyCode.None) // Sprawdzanie, jeśli klawisz jest aktywny
         {
             foreach (var key in keyPool)
             {
-                if (Input.GetKeyDown(key.ToLower())) // Sprawdzanie wciśniętego klawisza
+                if (Input.GetKeyDown(key)) // Sprawdzanie wciśniętego klawisza
                 {
                     CheckKey(key);
                     break;
@@ -59,23 +60,23 @@ public class QuickTimeEventGame : MiniGameBase
     IEnumerator HandleKeyCycle()
     {
         keyDisplay.text = ""; // Ukryj klawisz
-        currentKey = "";      // Ustaw brak aktywnego klawisza
+        currentKey = KeyCode.None;      // Ustaw brak aktywnego klawisza
 
         yield return new WaitForSeconds(keyDisplayDelay); // Odczekaj, zanim wyświetlisz klawisz
 
-        currentKey = keyPool[Random.Range(0, keyPool.Length)];
-        keyDisplay.text = currentKey; // Wyświetl klawisz
+        currentKey = keyPool[Random.Range(0, keyPool.Count)];
+        keyDisplay.text = currentKey.ToString(); // Wyświetl klawisz
 
         yield return new WaitForSeconds(reactionTime); // Odczekaj czas reakcji gracza
 
-        if (currentKey != "") // Jeśli klawisz nadal aktywny (brak reakcji gracza)
+        if (currentKey!=KeyCode.None) // Jeśli klawisz nadal aktywny (brak reakcji gracza)
         {
             ResetProgress(); // Zresetuj progres
             StartNewKeyCycle(); // Rozpocznij od nowa
         }
     }
 
-    void CheckKey(string pressedKey)
+    void CheckKey(KeyCode pressedKey)
     {
         if (pressedKey == currentKey)
         {
@@ -132,7 +133,7 @@ public class QuickTimeEventGame : MiniGameBase
         // Wygrana - wyświetl komunikat i zatrzymaj dalsze akcje
         winMessage.gameObject.SetActive(true);
         keyDisplay.text = "";
-        currentKey = ""; // Wyłącz aktywny klawisz
+        currentKey=KeyCode.None; // Wyłącz aktywny klawisz
         if (currentCoroutine != null)
         {
             StopCoroutine(currentCoroutine); // Zatrzymaj korutynę

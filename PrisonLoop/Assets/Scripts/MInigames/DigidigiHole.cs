@@ -5,7 +5,7 @@ public class DigidigiHole : MiniGameBase
 {
     [SerializeField] private Transform hole;
     //0 = Yard
-    [SerializeField] private int holeId = 0;
+    [SerializeField] public int holeId = 0;
     
     private int myHp;
     private int damage=1;
@@ -15,6 +15,10 @@ public class DigidigiHole : MiniGameBase
         myHp = GameManager.Instance.TunelHp[holeId];
         ChoseTool();
         CalculateSize();
+    }
+    private void OnDestroy()
+    {
+        
     }
 
     private void OnMouseDown()
@@ -42,10 +46,11 @@ public class DigidigiHole : MiniGameBase
 
     private void FixedUpdate()
     {
-            if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Q))
+
+        if (Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.Q) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Escape))
             {
-                CloseMinigame();
-            }
+            CloseMinigame();
+        }
     }
 
     private void CalculateSize()

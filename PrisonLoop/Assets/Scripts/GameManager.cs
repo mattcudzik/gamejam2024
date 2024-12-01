@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,9 +11,28 @@ class GameManager: MonoBehaviour
     public bool IsSceneWorkDone{ get; set; } = false;
     public PlayerEq PlayerEq{get; set;}
     public LevelManager LevelManagerInstance{get; set;}
+    public int CurrentDay { get; set; } = 1;
+    private int MaxDay { get; set; } = 10;
     [SerializeField] private GameObject UI;
     public Timer Timer  {get; set;}
-        
+    [SerializeField] public TextMeshProUGUI Days;
+
+    public bool NextDay()
+    {
+        CurrentDay++;
+        Days.text = "Days left: " + (11 - CurrentDay);
+        if (CurrentDay > MaxDay)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public void GetCaught()
+    {
+        Timer.StartDelay();
+    }
+
     void Awake()
     {
         TunelHp=new int[3];
@@ -37,15 +57,26 @@ class GameManager: MonoBehaviour
     }
     private void OnSceneUnLoaded(Scene scene)
     {
-        Debug.Log($"Kończona scena: {scene.name}");
     }
+
+    public void UIActive(bool state)
+    {
+        UI.SetActive(state);
+    }
+
     private void WorkComplete()
     {
         IsSceneWorkDone = true;
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        IsSceneWorkDone = false;
+        string name = SceneManager.GetActiveScene().name;
+        if ( name== "Meal"||name=="Work"||name=="Laundry")
+        {
+            IsSceneWorkDone = true;
+        }
+        else IsSceneWorkDone = false;
+
     }
 
     public void StartGame()

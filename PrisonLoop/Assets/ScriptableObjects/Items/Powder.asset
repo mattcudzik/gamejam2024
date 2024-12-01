@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Size: 1
   Type: 6
-  Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  Sprite: {fileID: 5811388914508841456, guid: 479d8b31085a81b4f9d3e974b57cfd33, type: 3}
   Contraband: 1

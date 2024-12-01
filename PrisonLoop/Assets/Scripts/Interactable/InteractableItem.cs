@@ -46,9 +46,9 @@ public class InteractableItem : MonoBehaviour, IInteractable
         {
             var eq = GameManager.Instance.PlayerEq;
             if (eq.CanGetItem(Item))
-                sr.color = Color.blue;
+                sr.color = Color.green;
             else
-                sr.color = Color.red;
+                sr.color = Color.gray;
         }
         else
         {

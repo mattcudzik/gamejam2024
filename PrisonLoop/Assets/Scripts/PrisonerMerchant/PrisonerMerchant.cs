@@ -45,7 +45,7 @@ public class PrisonerMerchant : MonoBehaviour, IInteractable
     {
         if (boughtOut)
         {
-            spriteRenderer.color = Color.red;
+            spriteRenderer.color = Color.gray;
             Debug.Log("Bought out");
             return;
         }

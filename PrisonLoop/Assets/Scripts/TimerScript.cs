@@ -20,8 +20,12 @@ public class Timer : MonoBehaviour
     //14:00 - Czas wolny -> 360
     //20:00 - Posiłek -> 720
     //21:00 - Sen  -> 780
-    
+
+    private float timerWait = 5f;
+    private float timerWaitStart = 0f;
+    private bool isTimerWait = false;
     private float TimeOffeset = 480.0f;
+    private bool ParityDay = false;
     public float CurrentTime { get; set; }
     private int CurrentEventIndex = 0;
     public static Action OnSceneChange;
@@ -45,23 +49,72 @@ public class Timer : MonoBehaviour
     {
         //Change Scene
         CurrentTime += Time.deltaTime * timerSpeed;
-        if (CurrentEventIndex < timetable.Count && CurrentTime >= timetable[CurrentEventIndex].EventTime)
+        if (!isTimerWait)
         {
-            if (GameManager.Instance.IsSceneWorkDone)
+            if (CurrentEventIndex < timetable.Count && CurrentTime >= timetable[CurrentEventIndex].EventTime)
             {
-                SceneManager.LoadScene(timetable[CurrentEventIndex].SceneName);
-                
-                CurrentEventIndex++;
-            }
-            else
-            {
-                //SceneManager.LoadScene(""); TODO
-            }
-            OnSceneChange?.Invoke();
+                if (GameManager.Instance.IsSceneWorkDone)
+                {
+                    if (ParityDay == true && timetable[CurrentEventIndex].SceneName == "Work")
+                    {
+                        SceneManager.LoadScene("Laundry");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(timetable[CurrentEventIndex].SceneName);
+                    }
+
+                    
+                    CurrentEventIndex++;
+                    if (CurrentEventIndex == timetable.Count) NextDay();
+                }
+                else
+                {
+                    StartDelay();
+                }
+                OnSceneChange?.Invoke();
             
+            }
+            UpdateTimerText();
+        }
+        else
+        {
+            if (CurrentTime - timerWaitStart >= timerWait)
+            {
+                NextDay();
+            }
         }
         
-        UpdateTimerText();
+        
+        
+    }
+
+    public void StartDelay()
+    {
+        SceneManager.LoadScene("Delay"); 
+        isTimerWait = true;
+        timerWaitStart = CurrentTime;
+    }
+
+    public void NextDay()
+    {
+        if (GameManager.Instance.NextDay())
+        {
+            SceneManager.LoadScene("RollCall");
+            CurrentEventIndex=0;
+            CurrentTime = startTime;
+            isTimerWait = false;
+        }
+        else
+        {
+            SceneManager.LoadScene("GameOver");
+            GameManager.Instance.UIActive(false);
+        }
+
+
+        
+        
+        
     }
 
     private void UpdateTimerText()

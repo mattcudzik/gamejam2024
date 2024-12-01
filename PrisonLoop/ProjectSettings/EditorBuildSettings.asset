@@ -23,6 +23,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Work.unity
     guid: 7598c0e41a4cb1e4b8de80ad705fc9de
+  - enabled: 1
+    path: Assets/Scenes/Laundry.unity
+    guid: 087732052c8376e42b975acd692220f2
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 8b2a1e9f43265a94ca7c84aa13e1d045
+  - enabled: 1
+    path: Assets/Scenes/Delay.unity
+    guid: 6e52ad277433f5645aedd5460e1c4b56
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

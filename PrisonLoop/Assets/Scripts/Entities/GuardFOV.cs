@@ -58,7 +58,14 @@ public class GuardFOV : MonoBehaviour
     {
         //TODO implement contraband check
         //1. check if player has contraband in inventory startTimer 
+        if (GameManager.Instance.PlayerEq.ContainsContraband())
+            return true;
         //2. if digidig 
+        var player = target.gameObject.GetComponent<PlayerMovement>();
+        if(player != null && player.IsPlayerDigging())
+            return true;
+
+        return false;
     }
 
     private bool IsTargetInFieldOfView()

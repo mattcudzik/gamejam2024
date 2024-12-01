@@ -7,7 +7,7 @@ namespace Entities
     public class PrisonerStateManager : EntityStateManager
     {
         [SerializeField] private NavMeshData _meshData;
-        [SerializeField] private bool isStandingStill = false;
+        [SerializeField] public bool isStandingStill = false;
         public EntityMovement entityMovement { get; set; }
         public Timer timer { get; set; }
 
@@ -24,6 +24,23 @@ namespace Entities
             {
                 currentState = new IdleState(this);
                 currentState.EnterState();
+            }
+            
+            PrisonerHelper ph = GetComponent<PrisonerHelper>();
+            if(ph!=null) ph.OnHelpBought += PerformHelpState;
+        }
+
+        private void PerformHelpState(HelpOffer  helpOffer)
+        {
+            
+            switch (helpOffer.helpOption)
+            {
+                case HelpEnum.Distraction:
+                    SwitchState(new CauseDistractionState(this));
+                    break;
+                case HelpEnum.Work:
+                    SwitchState(new PerformWorkTaskState(this));
+                    break;
             }
         }
 

@@ -9,7 +9,7 @@ public class LevelManager:MonoBehaviour
     public static Action MiniGameCompleted;
     private Boolean levelCompleted { get; set; } = false;
 
-    InteractableBox GetMiniGameBox()
+    public InteractableBox GetMiniGameBox()
     {
         return MiniGameBox;
     }

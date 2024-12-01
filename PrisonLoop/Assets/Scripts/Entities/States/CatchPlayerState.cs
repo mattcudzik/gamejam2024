@@ -17,8 +17,7 @@ namespace Entities.States
         {
             if (_entityMovement.HasReachedTarget())
             {
-                //END GAME
-                Debug.Log("GAME OVER");
+                GameManager.Instance.GetCaught();
             }
         }
 

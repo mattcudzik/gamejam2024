@@ -3,6 +3,7 @@ using UnityEngine;
 public class GuardStateManager : EntityStateManager
 {
     [SerializeField] private Transform[] pathRoute;
+    [SerializeField] private (Vector2 from, Vector2 to)[] viewAngles;
     [SerializeField] public float TimeToLookAround;
     private int currentPathPoint;
     public EntityMovement entityMovement { get; set; }
@@ -29,6 +30,8 @@ public class GuardStateManager : EntityStateManager
 
         return pathRoute[currentPathPoint];
     }
+    
+    public (Vector2 from, Vector2 to) GetCurrentRotation() => viewAngles[currentPathPoint];
     
     public float GetTimeToLookAround() => TimeToLookAround;
     

@@ -6,7 +6,7 @@ public class ItemSO : ScriptableObject
     public int Size;
     public ItemEnum Type;
     public Sprite Sprite;
-
+    public bool Contraband = false;
     public string toStr()
     {
         return Type.ToString() + " " + Size;

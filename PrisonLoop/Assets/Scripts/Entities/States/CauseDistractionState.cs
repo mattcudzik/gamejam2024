@@ -39,7 +39,7 @@ namespace Entities.States
                     onFightStart.Invoke(_stateManager.transform);
                 }
 
-                if (_timer.CurrentTime >= startFightingTime + fightingTime)
+                if (_timer.CurrentTime >= startFightingTime + fightingTime && startedFighting)
                 {
                     _stateManager.SwitchState(new IdleState(_stateManager));
                     onFightEnd.Invoke();
@@ -51,11 +51,13 @@ namespace Entities.States
         {
             _entityMovement.SetTarget(otherPrisoner.transform);
             _entityMovement.StartAgent();
+            var speed = _entityMovement.agent.speed;
+            _entityMovement.agent.speed = speed * 2;
         }
 
         public override void ExitState()
         {
-            
+            _entityMovement.agent.speed = _entityMovement.agent.speed / 2;
         }
 
         private GameObject getRandomPrisoner()

@@ -14,14 +14,14 @@ public class LevelManager:MonoBehaviour
         return MiniGameBox;
     }
 
-    void start()
+    void Start()
     {
         MiniGameBase.onMiniGameEnd += MiniGameEnd;
     }
     
     void MiniGameEnd()
     {
-        MiniGameCompleted.Invoke();
+        MiniGameCompleted?.Invoke();
         levelCompleted = true; 
         Destroy(MiniGameBox.minigameInstance);
     }

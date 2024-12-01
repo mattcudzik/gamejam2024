@@ -43,6 +43,7 @@ public class FoodSpawner : MiniGameBase
             activeFoods.Remove(foodInstance);
             if (activeFoods.Count == 0)
             {
+                
                 onMiniGameEnd?.Invoke();
                 Destroy(gameObject);
             }

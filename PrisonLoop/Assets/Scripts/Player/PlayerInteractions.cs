@@ -6,10 +6,11 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private KeyCode interactionKey = KeyCode.E; // Klawisz interakcji
 
     private IInteractable currentInteractable;
+    public GameObject InteractHelpUI;
 
     private void Update()
     {
-        // SprawdŸ, czy gracz naciska klawisz interakcji
+        // Sprawdï¿½, czy gracz naciska klawisz interakcji
         if (currentInteractable != null && Input.GetKeyDown(interactionKey))
         {
             currentInteractable.Interact();
@@ -18,23 +19,25 @@ public class PlayerInteractions : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // SprawdŸ, czy obiekt posiada komponent implementuj¹cy IInteractable
+        // Sprawdï¿½, czy obiekt posiada komponent implementujï¿½cy IInteractable
         IInteractable interactable = collision.gameObject.GetComponent<IInteractable>();
         if (currentInteractable == null && interactable != null)
         {
             currentInteractable = interactable;
             interactable.OnPlayerEnter();
+            InteractHelpUI.gameObject.SetActive(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // Usuñ obiekt z obecnego kontekstu, gdy gracz opuœci jego zasiêg
+        // Usuï¿½ obiekt z obecnego kontekstu, gdy gracz opuï¿½ci jego zasiï¿½g
         IInteractable interactable = collision.GetComponent<IInteractable>();
         if (interactable != null && interactable == currentInteractable)
         {
             interactable.OnPlayerExit();
             currentInteractable = null;
+            InteractHelpUI.gameObject.SetActive(false);
         }
     }
 }

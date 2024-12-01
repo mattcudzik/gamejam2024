@@ -1,3 +1,5 @@
+using Entities;
+using Entities.States;
 using UnityEngine;
 
 public class GuardStateManager : EntityStateManager
@@ -15,6 +17,18 @@ public class GuardStateManager : EntityStateManager
         
         currentState = new PatrolState(this, pathRoute[0]);
         
+        CauseDistractionState.onFightStart += OnFightStart;
+        CauseDistractionState.onFightEnd += OnFightEnd;
+    }
+
+    private void OnFightEnd()
+    {
+        SwitchState(new PatrolState(this, GetNextPathPoint()));
+    }
+
+    private void OnFightStart(Transform prisoner)
+    {
+        SwitchState(new GetDistractedState(this, prisoner));
     }
 
     public Transform GetNextPathPoint()

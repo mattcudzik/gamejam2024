@@ -42,7 +42,7 @@ namespace Entities.States
             {
                 if (_entityMovement.HasReachedTarget())
                 {
-                    StartWaiing();
+                    StartWaiting();
                 }
             }
             
@@ -61,7 +61,7 @@ namespace Entities.States
             }
         }
 
-        private void StartWaiing()
+        private void StartWaiting()
         {
             isWaiting = true;
              startWaitingTime = _stateManager.timer.CurrentTime;

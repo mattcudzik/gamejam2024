@@ -41,6 +41,7 @@ class GameManager: MonoBehaviour
         TunelHp[2] = 1000;
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnLoaded;
+        LevelManagerInstance = FindFirstObjectByType<LevelManager>();
         if (Instance == null)
         {
             Instance = this;
@@ -57,6 +58,8 @@ class GameManager: MonoBehaviour
     }
     private void OnSceneUnLoaded(Scene scene)
     {
+        Debug.Log("aaa");
+        LevelManagerInstance = FindFirstObjectByType<LevelManager>();
     }
 
     public void UIActive(bool state)

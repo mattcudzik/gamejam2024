@@ -10,14 +10,14 @@ namespace Entities.States
         private EntityMovement _entityMovement;
         private Timer _timer;
 
-        private float _timeToPerformTask = 30f;
+        private float _timeToPerformTask = 3f;
         private float _timeStartedPerformingTask = 0f;
         
         private bool startedPerformingTask = false;
         
         public PerformWorkTaskState(PrisonerStateManager stateManager)
         {
-            _workStationTransform = GameManager.Instance.LevelManagerInstance.GetMiniGameBox().transform;
+            _workStationTransform = GameManager.Instance.LevelManagerInstance.GetMiniGameBox().gameObject.transform;
             _stateManager = stateManager;
             _entityMovement = _stateManager.entityMovement;
             _timer = GameManager.Instance.Timer;
@@ -35,6 +35,7 @@ namespace Entities.States
                 if (_timer.CurrentTime >= _timeToPerformTask + _timeStartedPerformingTask)
                 {
                     GameManager.Instance.IsSceneWorkDone = true;
+                    _workStationTransform.gameObject.GetComponent<InteractableBox>().interactable= false;
                     _stateManager.SwitchState(new IdleState(_stateManager));
                 }
             }

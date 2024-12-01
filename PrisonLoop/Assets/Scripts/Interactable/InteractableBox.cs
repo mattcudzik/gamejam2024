@@ -7,7 +7,7 @@ public class InteractableBox : MonoBehaviour, IInteractable
     public Color iteractColor;
     [SerializeField] public GameObject MinigamePrefab;
     public GameObject minigameInstance;
-    private Boolean interactable = true;
+    public Boolean interactable = true;
     public void Interact()
     {
         if (interactable)

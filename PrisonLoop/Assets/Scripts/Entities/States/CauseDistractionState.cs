@@ -64,16 +64,18 @@ namespace Entities.States
         {
             GameObject[] objects = GameObject.FindGameObjectsWithTag("Prisoner");
             List<GameObject> prisoners =  objects.ToList();
-            
+            Debug.Log(objects.Length);
+            Debug.Log(prisoners.Count);
             GameObject randomPrisoner;
             int index;
             do
             {
                 index = Random.Range(0, prisoners.Count);
+                Debug.Log(index);
                 randomPrisoner = prisoners.ElementAt(index);
                 prisoners.RemoveAt(index);
             }
-            while(randomPrisoner == _stateManager.gameObject || !randomPrisoner.GetComponent<PrisonerStateManager>().isStandingStill); 
+            while(prisoners.Count >0 && (randomPrisoner == _stateManager.gameObject || !randomPrisoner.GetComponent<PrisonerStateManager>().isStandingStill)); 
             
             return randomPrisoner;
         }

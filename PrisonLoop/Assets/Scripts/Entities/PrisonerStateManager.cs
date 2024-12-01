@@ -25,8 +25,6 @@ namespace Entities
                 currentState = new IdleState(this);
                 currentState.EnterState();
             }
-            
-            
         }
 
         public NavMeshData MeshData => _meshData;

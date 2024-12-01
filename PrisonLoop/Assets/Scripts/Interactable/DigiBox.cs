@@ -12,7 +12,7 @@ public class DigiBox : MonoBehaviour, IInteractable
     {
         
         Vector3 position = Vector3.zero;
-        minigameInstance = Instantiate(MinigamePrefab, position, Quaternion.identity);
+        minigameInstance = Instantiate(MinigamePrefab, gameObject.transform.position, Quaternion.identity);
         DigidigiHole d;
         if (minigameInstance.gameObject.TryGetComponent<DigidigiHole>(out d))
         {
@@ -22,7 +22,7 @@ public class DigiBox : MonoBehaviour, IInteractable
         else
         {
             // Komponent DigidigiHole nie istnieje na tym obiekcie
-            Debug.LogWarning("Komponent DigidigiHole nie zosta³ znaleziony!");
+            Debug.LogWarning("Komponent DigidigiHole nie zostaï¿½ znaleziony!");
         }
     }
 

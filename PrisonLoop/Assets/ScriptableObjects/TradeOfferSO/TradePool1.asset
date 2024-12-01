@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredItem: {fileID: 11400000, guid: 1e9ef2693d5b3484e8323d3e404b2c20, type: 2}
   options:
-  - offeredItem: {fileID: 11400000, guid: 19e7272bcd2e81f41b9b3662bd8029da, type: 2}
+  - offeredItem: {fileID: 11400000, guid: 91d48f7768543bf4f9401e7532fc4f48, type: 2}
     probability: 0.8
+  - offeredItem: {fileID: 11400000, guid: 96d5cbc7cf5e2ff489f8711d7bbb25fb, type: 2}
+    probability: 0.1
   - offeredItem: {fileID: 11400000, guid: c16275ea3ffa1624aa083878726df7e3, type: 2}
     probability: 0.2

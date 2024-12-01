@@ -21,6 +21,8 @@ namespace Entities.States
             {
                 _guardStateManager.SwitchState(new PatrolState(_guardStateManager, _guardStateManager.GetNextPathPoint()));
             }
+            
+            //Check if player caught
         }
 
         public override void EnterState()

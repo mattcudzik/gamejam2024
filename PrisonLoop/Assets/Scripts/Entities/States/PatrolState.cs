@@ -22,6 +22,8 @@ public class PatrolState : IState
         {
             _stateManager.SwitchState(new LookAroundState(_stateManager, _stateManager.TimeToLookAround));
         }
+        
+        //chcek if player caught
     }
 
     public override void EnterState()

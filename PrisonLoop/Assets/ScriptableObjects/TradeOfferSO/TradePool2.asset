@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fc6c41a2fa2d54b942d1bf88a0b4ca, type: 3}
   m_Name: TradePool2
   m_EditorClassIdentifier: 
-  desiredItem: {fileID: 11400000, guid: 1e9ef2693d5b3484e8323d3e404b2c20, type: 2}
+  desiredItem: {fileID: 11400000, guid: 0c673baec19884c49b959ed9838f7a50, type: 2}
   options:
-  - offeredItem: {fileID: 11400000, guid: 19e7272bcd2e81f41b9b3662bd8029da, type: 2}
-    probability: 0.8
-  - offeredItem: {fileID: 11400000, guid: c16275ea3ffa1624aa083878726df7e3, type: 2}
+  - offeredItem: {fileID: 11400000, guid: 1e9ef2693d5b3484e8323d3e404b2c20, type: 2}
     probability: 0.2
+  - offeredItem: {fileID: 11400000, guid: c16275ea3ffa1624aa083878726df7e3, type: 2}
+    probability: 0.1
+  - offeredItem: {fileID: 11400000, guid: dc14d03d4634ade43a5c71cd41f6a743, type: 2}
+    probability: 0.3
+  - offeredItem: {fileID: 11400000, guid: 19e7272bcd2e81f41b9b3662bd8029da, type: 2}
+    probability: 0.4

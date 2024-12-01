@@ -12,6 +12,7 @@ public class DigidigiHole : MiniGameBase
     private void Start()
     {
         onDigisStarted?.Invoke();
+        onMiniGameStart?.Invoke();
         myHp = GameManager.Instance.TunelHp[holeId];
         ChoseTool();
         CalculateSize();

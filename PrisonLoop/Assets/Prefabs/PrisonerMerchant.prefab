@@ -256,10 +256,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216a9397cb253b64186b9a3bcfdfb9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tradePool: {fileID: 11400000, guid: 7927e241826c8674f898705f1b218bdb, type: 2}
-  tradeOffer:
-    desiredItem: {fileID: 11400000, guid: 1e9ef2693d5b3484e8323d3e404b2c20, type: 2}
-    offeredItem: {fileID: 11400000, guid: 1e9ef2693d5b3484e8323d3e404b2c20, type: 2}
+  tradePools:
+  - {fileID: 11400000, guid: 7927e241826c8674f898705f1b218bdb, type: 2}
+  - {fileID: 11400000, guid: fc576c3394939e442be056ac90b4103e, type: 2}
+  - {fileID: 11400000, guid: aadb7ca24c04be34f9029eb4ca6656e5, type: 2}
+  - {fileID: 11400000, guid: 4fabb90a19bf2e24090781143378fab1, type: 2}
   tradeUI: {fileID: 88184208124662631}
 --- !u!1 &2484914477273500695
 GameObject:

@@ -198,7 +198,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1928087534548615215, guid: c649e826897d6684282c0d02f694efee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.21
+      value: 2.96
       objectReference: {fileID: 0}
     - target: {fileID: 1928087534548615215, guid: c649e826897d6684282c0d02f694efee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -403,7 +403,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1928087534548615215, guid: 1728869f660478142b7218b2108bb110, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.58
+      value: -6.73
       objectReference: {fileID: 0}
     - target: {fileID: 1928087534548615215, guid: 1728869f660478142b7218b2108bb110, type: 3}
       propertyPath: m_LocalPosition.y
@@ -469,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 2740483238832751963, guid: 1da4384a50cab094e8f35705ca5458cc, type: 3}
       propertyPath: Item
       value: 
-      objectReference: {fileID: 11400000, guid: ff5b3609fa8b33a46b81cd36e31fce41, type: 2}
+      objectReference: {fileID: 11400000, guid: 1e9ef2693d5b3484e8323d3e404b2c20, type: 2}
     - target: {fileID: 4243119199734617053, guid: 1da4384a50cab094e8f35705ca5458cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.67
@@ -730,7 +730,7 @@ PrefabInstance:
     - target: {fileID: 4092284121393615559, guid: b0e0f429a0177024486d1970d45a0b0e, type: 3}
       propertyPath: MinigamePrefab
       value: 
-      objectReference: {fileID: 5606085818605393975, guid: 22707f1739627544c8dd5a9da1509627, type: 3}
+      objectReference: {fileID: 3730904374728121226, guid: 7b0d27a7b9d4fe946931380d628c12d5, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -751,7 +751,7 @@ PrefabInstance:
     - target: {fileID: 2740483238832751963, guid: 1da4384a50cab094e8f35705ca5458cc, type: 3}
       propertyPath: Item
       value: 
-      objectReference: {fileID: 11400000, guid: b2699f14e8dd8b647aad767d415ada06, type: 2}
+      objectReference: {fileID: 11400000, guid: 96d5cbc7cf5e2ff489f8711d7bbb25fb, type: 2}
     - target: {fileID: 4243119199734617053, guid: 1da4384a50cab094e8f35705ca5458cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.78

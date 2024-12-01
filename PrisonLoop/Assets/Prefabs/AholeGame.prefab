@@ -256,7 +256,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Dig!
 
-    [Q] To leave
+    [Esc] To leave
 
     Mouse[1] to dig'
   m_isRightToLeft: 0

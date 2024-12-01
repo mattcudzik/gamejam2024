@@ -22,8 +22,11 @@ public class InteractableItem : MonoBehaviour, IInteractable
         sr.color = iteractColor;
         var eq = GameManager.Instance.PlayerEq;
         if (eq.CanGetItem(Item))
-        { 
-            if(eq.addItem(Item))Debug.Log("Added");
+        {
+            if (eq.addItem(Item))
+            {
+                Destroy(gameObject);
+            }
             sr.color = Color.clear;
         }
 

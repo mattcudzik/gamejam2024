@@ -76,6 +76,8 @@ public class ItemGridManager : MonoBehaviour
         }
 
         // Dodaj kafelek dla ka¿dego elementu
+        if (currentIdx == -1 && items.Count > 0)
+            currentIdx = 0;
         int idx = 0;
         foreach (var item in items)
         {

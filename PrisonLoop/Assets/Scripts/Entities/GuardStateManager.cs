@@ -14,6 +14,7 @@ public class GuardStateManager : EntityStateManager
         currentPathPoint = 0;
         
         currentState = new PatrolState(this, pathRoute[0]);
+        
     }
 
     public Transform GetNextPathPoint()

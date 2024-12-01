@@ -8,23 +8,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
-    private void Start()
+    void FixedUpdate()
     {
-        // Pobranie komponentu Rigidbody2D
-        rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
-        {
-            Debug.LogError("Brak komponentu Rigidbody2D na obiekcie!");
-        }
-    }
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
 
-    private void FixedUpdate()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(moveX, moveY, 0f).normalized;
 
-        movement = new Vector2(horizontal, vertical).normalized;
-
-        rb.linearVelocity = movement * moveSpeed;
+        // Ruch oparty na czasie (płynność niezależnie od FPS)
+        transform.Translate(movement * (moveSpeed * Time.deltaTime));
     }
 }

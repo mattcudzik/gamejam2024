@@ -174,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 7276961270104803405, guid: 732388427a21cb645bcde82ce752aa45, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: b7deeebe9af2103409fb3fb53258cf94, type: 2}
+      objectReference: {fileID: 23800000, guid: 14dac0c7f751b6e4d99addada6a26535, type: 2}
     - target: {fileID: 7276961270104803405, guid: 732388427a21cb645bcde82ce752aa45, type: 3}
       propertyPath: m_LayerMask.m_Bits
       value: 4294967295
@@ -676,8 +676,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1446241554431155498, guid: b0e0f429a0177024486d1970d45a0b0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3699276168758113326, guid: 479d8b31085a81b4f9d3e974b57cfd33, type: 3}
+    - target: {fileID: 1446241554431155498, guid: b0e0f429a0177024486d1970d45a0b0e, type: 3}
       propertyPath: m_SortingOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892160342813789618, guid: b0e0f429a0177024486d1970d45a0b0e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892160342813789618, guid: b0e0f429a0177024486d1970d45a0b0e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3892160342813789618, guid: b0e0f429a0177024486d1970d45a0b0e, type: 3}
       propertyPath: m_LocalPosition.x

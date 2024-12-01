@@ -8,6 +8,9 @@ public class EntityMovement : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    
+    
+
     private void FixedUpdate()
     {
         Vector2 velocity = agent.velocity;
@@ -38,6 +41,7 @@ public class EntityMovement : MonoBehaviour
         agent.updateUpAxis = false;
         agent.isStopped = true;
         
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
@@ -46,7 +50,7 @@ public class EntityMovement : MonoBehaviour
     {
         if (agent == null || !agent.pathPending)
         {
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            if (agent.remainingDistance <= agent.stoppingDistance-1)
             {
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {

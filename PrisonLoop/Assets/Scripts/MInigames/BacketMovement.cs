@@ -35,12 +35,15 @@ public class BacketMovement : MonoBehaviour
     private int caught = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
-        caught++;
-        updadeResultStr();
-        if (caught == gameEnd)
+        if (collision.gameObject.CompareTag("Pants"))
         {
-            TriggerSignal();
+            Destroy(collision.gameObject);
+            caught++;
+            updadeResultStr();
+            if (caught == gameEnd)
+            {
+                TriggerSignal();
+            }
         }
     }
 

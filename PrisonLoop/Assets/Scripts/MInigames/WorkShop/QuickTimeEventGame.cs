@@ -1,31 +1,35 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using System.Collections; // Potrzebne dla Coroutine
+using System.Collections;
+using System.Collections.Generic;
 
-public class QuickTimeEventGame : MonoBehaviour
+public class QuickTimeEventGame : MiniGameBase
 {
-    public TMP_Text keyDisplay;       // Wyświetlanie klawisza (TextMeshPro)
-    public Slider progressBar;        // Pasek postępu
-    public TMP_Text winMessage;       // Komunikat o wygranej (TextMeshPro)
+    public TMP_Text keyDisplay;                  // Wyświetlanie klawisza (TextMeshPro)
+    public TMP_Text winMessage;                  // Komunikat o wygranej (TextMeshPro)
+    public List<ProgressObject> progressObjects; // Lista obiektów (śrubek z paskami)
 
     private string[] keyPool = { "A", "S", "D", "F" }; // Pula klawiszy
-    private string currentKey;        // Aktualny klawisz
-    private int progress = 0;         // Aktualny postęp
-    private int maxProgress = 10;     // Maksymalny postęp
-
-    public float keyDisplayDelay = 1.0f; // Czas opóźnienia wyświetlenia klawisza
-    public float reactionTime = 3.0f;   // Czas na reakcję gracza
-
-    private Coroutine currentCoroutine; // Referencja do aktywnej korutyny
+    private string currentKey;                   // Aktualny klawisz
+    private int currentProgressObjectIndex = 0;  // Indeks aktualnie aktywnego obiektu
+    public float keyDisplayDelay = 1.0f;         // Czas opóźnienia wyświetlenia klawisza
+    public float reactionTime = 3.0f;            // Czas na reakcję gracza
+    public float keyDisplayOffsetY = 140f;
+    private Coroutine currentCoroutine;          // Referencja do aktywnej korutyny
 
     void Start()
     {
         winMessage.gameObject.SetActive(false);
-        progressBar.value = 0;
-        progressBar.maxValue = maxProgress;
+        keyDisplay.GetComponent<RectTransform>().localPosition =
+            progressObjects[0].GetComponent<RectTransform>().localPosition + new Vector3(0, keyDisplayOffsetY, 0);
+        // Ukryj wszystkie obiekty poza pierwszym
+        for (int i = 0; i < progressObjects.Count; i++)
+        {
+            progressObjects[i].ResetProgress();
+            progressObjects[i].SetVisibility(i == 0);
+        }
 
-        StartNewKeyCycle();
+        StartNewKeyCycle(); // Rozpocznij grę
     }
 
     void Update()
@@ -45,7 +49,6 @@ public class QuickTimeEventGame : MonoBehaviour
 
     void StartNewKeyCycle()
     {
-        // Rozpocznij cykl: wylosowanie klawisza i uruchomienie korutyny
         if (currentCoroutine != null)
         {
             StopCoroutine(currentCoroutine);
@@ -77,12 +80,18 @@ public class QuickTimeEventGame : MonoBehaviour
         if (pressedKey == currentKey)
         {
             // Poprawny klawisz - zwiększ progres
-            progress++;
-            progressBar.value = progress;
+            bool isComplete = progressObjects[currentProgressObjectIndex].IncreaseProgress();
 
-            if (progress >= maxProgress)
+            if (isComplete)
             {
-                WinGame();
+                if (currentProgressObjectIndex == progressObjects.Count - 1)
+                {
+                    WinGame(); // Ostatni obiekt ukończony
+                }
+                else
+                {
+                    ActivateNextObject(); // Przejdź do kolejnego obiektu
+                }
             }
             else
             {
@@ -99,8 +108,23 @@ public class QuickTimeEventGame : MonoBehaviour
 
     void ResetProgress()
     {
-        progress = 0;
-        progressBar.value = progress;
+        progressObjects[currentProgressObjectIndex].ResetProgress();
+    }
+
+    void ActivateNextObject()
+    {
+        // Dezaktywuj obecny obiekt
+        //progressObjects[currentProgressObjectIndex].SetVisibility(false);
+
+        // Przejdź do następnego obiektu
+        currentProgressObjectIndex++;
+        progressObjects[currentProgressObjectIndex].SetVisibility(true);
+        
+        keyDisplay.GetComponent<RectTransform>().localPosition =
+            progressObjects[currentProgressObjectIndex].GetComponent<RectTransform>().localPosition + new Vector3(0, 100, 0);
+
+        
+        StartNewKeyCycle(); // Rozpocznij cykl dla nowego obiektu
     }
 
     void WinGame()
@@ -113,5 +137,8 @@ public class QuickTimeEventGame : MonoBehaviour
         {
             StopCoroutine(currentCoroutine); // Zatrzymaj korutynę
         }
+        
+        onMiniGameEnd?.Invoke();
+        Destroy(gameObject);
     }
 }

@@ -7,5 +7,3 @@ using UnityEngine;
         public static Action onMiniGameStart;
         public static Action onMiniGameEnd;
     }
-    
-    

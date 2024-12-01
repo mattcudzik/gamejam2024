@@ -10,9 +10,7 @@ public class ProgressObject:MonoBehaviour
     public int maxProgress = 5;      // Maksymalna wartość postępu
     private int currentProgress = 0;   // Aktualny postęp
 
-    /// <summary>
-    /// Resetuje stan obiektu (rotację i pasek postępu).
-    /// </summary>
+
     public void ResetProgress()
     {
         currentProgress = 0;
@@ -25,9 +23,7 @@ public class ProgressObject:MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Aktualizuje progres o jedną jednostkę. Zwraca true, jeśli osiągnięto maksymalny progres.
-    /// </summary>
+ 
     public bool IncreaseProgress()
     {
         currentProgress++;
@@ -36,9 +32,7 @@ public class ProgressObject:MonoBehaviour
         return currentProgress >= maxProgress;
     }
 
-    /// <summary>
-    /// Ustawia maksymalny progres dla obiektu.
-    /// </summary>
+
     public void SetMaxProgress(int maxProgress)
     {
         this.maxProgress = maxProgress;
@@ -48,9 +42,7 @@ public class ProgressObject:MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Aktualizuje pasek postępu na podstawie bieżącego stanu.
-    /// </summary>
+ 
     private void UpdateProgressBar()
     {
         if (progressBar != null)
@@ -59,9 +51,7 @@ public class ProgressObject:MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Obraca obraz śrubki na podstawie bieżącego stanu progresu.
-    /// </summary>
+
     private void UpdateScrewRotation()
     {
         if (screwImage != null)
@@ -72,9 +62,6 @@ public class ProgressObject:MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Ustawia widoczność obiektu (śrubki i paska).
-    /// </summary>
     public void SetVisibility(bool isVisible)
     {
         

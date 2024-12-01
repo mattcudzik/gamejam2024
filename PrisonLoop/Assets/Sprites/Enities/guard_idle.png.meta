@@ -1,10 +1,40 @@
 fileFormatVersion: 2
-guid: 31d1899c713632546a33eb79103e5dbb
+guid: 78699e15214df904bb7bff72e446642e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9214905927470476868
-    second: prisoner_idle_0
+      213: -789570963418081775
+    second: guard_idle_0
+  - first:
+      213: -5704494570074884988
+    second: guard_idle_1
+  - first:
+      213: 4418513713263867637
+    second: guard_idle_2
+  - first:
+      213: 4639460331939537153
+    second: guard_idle_3
+  - first:
+      213: 8075930914215133491
+    second: guard_idle_4
+  - first:
+      213: 7182374596472762478
+    second: guard_idle_5
+  - first:
+      213: -8796847408163716115
+    second: guard_idle_6
+  - first:
+      213: -3784474051595346438
+    second: guard_idle_7
+  - first:
+      213: -1211950744189336990
+    second: guard_idle_8
+  - first:
+      213: -9087607479282248045
+    second: guard_idle_9
+  - first:
+      213: -8444797101154748321
+    second: guard_idle_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: prisoner_idle_0
+      name: guard_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44ee48d4e1ce1ef70800000000000000
-      internalID: 9214905927470476868
+      spriteID: 11690806461ea05f0800000000000000
+      internalID: -789570963418081775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_1
+      name: guard_idle_1
       rect:
         serializedVersion: 2
         x: 16
@@ -135,16 +165,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 376e47d1c3ff205448d15d8a46768661
-      internalID: -698785397
+      spriteID: 484ba87896095d0b0800000000000000
+      internalID: -5704494570074884988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_2
+      name: guard_idle_2
       rect:
         serializedVersion: 2
         x: 32
@@ -157,16 +187,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 919014fad46c51a4f9047419e1d5d85b
-      internalID: 1521539733
+      spriteID: 5f6f84adfc6b15d30800000000000000
+      internalID: 4418513713263867637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_3
+      name: guard_idle_3
       rect:
         serializedVersion: 2
         x: 64
@@ -179,16 +209,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1236bc8323cea9848a200f3af8aaf5c2
-      internalID: -1076717712
+      spriteID: 101a5ca479ca26040800000000000000
+      internalID: 4639460331939537153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_4
+      name: guard_idle_4
       rect:
         serializedVersion: 2
         x: 80
@@ -201,16 +231,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: fe9562e8013e69f45812774acf5c39a5
-      internalID: 2123413014
+      spriteID: 331836cd068731070800000000000000
+      internalID: 8075930914215133491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_5
+      name: guard_idle_5
       rect:
         serializedVersion: 2
         x: 96
@@ -223,16 +253,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: feafe07b8beb86742a7ef7e6667eb507
-      internalID: -1637496129
+      spriteID: e607c8244abeca360800000000000000
+      internalID: 7182374596472762478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_6
+      name: guard_idle_6
       rect:
         serializedVersion: 2
         x: 112
@@ -245,16 +275,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: fb42b12c7291f2048aaceb776cf74a78
-      internalID: 1237087098
+      spriteID: de30615d3e15be580800000000000000
+      internalID: -8796847408163716115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_7
+      name: guard_idle_7
       rect:
         serializedVersion: 2
         x: 128
@@ -267,16 +297,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ce9bf629003eb36439a901e06108464f
-      internalID: 1335711813
+      spriteID: afdd9fca6e8da7bc0800000000000000
+      internalID: -3784474051595346438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_8
+      name: guard_idle_8
       rect:
         serializedVersion: 2
         x: 144
@@ -289,16 +319,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1249b09f5595e764d89b130488530ea4
-      internalID: 1260226969
+      spriteID: 262035728394e2fe0800000000000000
+      internalID: -1211950744189336990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_9
+      name: guard_idle_9
       rect:
         serializedVersion: 2
         x: 160
@@ -311,16 +341,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4640335b512487f4b9b9bcebb24c851a
-      internalID: -1234904267
+      spriteID: 396d233552552e180800000000000000
+      internalID: -9087607479282248045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: prisoner_idle_10
+      name: guard_idle_10
       rect:
         serializedVersion: 2
         x: 176
@@ -333,10 +363,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 00fa35b48a6456247b4bfaaf1a60b35f
-      internalID: 2099345426
+      spriteID: f583c6967cd0eca80800000000000000
+      internalID: -8444797101154748321
       vertices: []
       indices: 
       edges: []
@@ -345,7 +375,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7b7fadd69cd7f7c45b23a873e132dfe3
+    spriteID: b5fbdcf3b8aba674c916e6aaa80cf0bd
     internalID: 0
     vertices: []
     indices: 
@@ -355,17 +385,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      prisoner_idle_0: 9214905927470476868
-      prisoner_idle_1: -698785397
-      prisoner_idle_10: 2099345426
-      prisoner_idle_2: 1521539733
-      prisoner_idle_3: -1076717712
-      prisoner_idle_4: 2123413014
-      prisoner_idle_5: -1637496129
-      prisoner_idle_6: 1237087098
-      prisoner_idle_7: 1335711813
-      prisoner_idle_8: 1260226969
-      prisoner_idle_9: -1234904267
+      guard_idle_0: -789570963418081775
+      guard_idle_1: -5704494570074884988
+      guard_idle_10: -8444797101154748321
+      guard_idle_2: 4418513713263867637
+      guard_idle_3: 4639460331939537153
+      guard_idle_4: 8075930914215133491
+      guard_idle_5: 7182374596472762478
+      guard_idle_6: -8796847408163716115
+      guard_idle_7: -3784474051595346438
+      guard_idle_8: -1211950744189336990
+      guard_idle_9: -9087607479282248045
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

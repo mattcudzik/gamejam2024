@@ -48,10 +48,10 @@ public class DigidigiHole : MiniGameBase
     private void FixedUpdate()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.G) || Input.GetKey(KeyCode.G) || Input.GetKey(KeyCode.Escape))
             {
             CloseMinigame();
-        }
+            }
     }
 
     private void CalculateSize()

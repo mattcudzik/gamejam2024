@@ -75,7 +75,7 @@ public class Timer : MonoBehaviour
                 
                 if (GameManager.Instance.IsSceneWorkDone)
                 {
-                    if (ParityDay == true && timetable[CurrentEventIndex].SceneName == "Work")
+                    if (GameManager.Instance.CurrentDay%2==0 && timetable[CurrentEventIndex].SceneName == "Workshop")
                     {
                         SceneManager.LoadScene("Laundry");
                     }

@@ -361,8 +361,8 @@ MonoBehaviour:
   - {fileID: 3656913053357000050}
   - {fileID: 4949937318155135375}
   - {fileID: 2224101422859485477}
-  keyDisplayDelay: 1
-  reactionTime: 3
+  keyDisplayDelay: 0.5
+  reactionTime: 2
   keyDisplayOffsetY: 140
 --- !u!222 &1304707172759116207
 CanvasRenderer:

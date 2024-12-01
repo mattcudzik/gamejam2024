@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Object = System.Object;
 
 public class Timer : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class Timer : MonoBehaviour
     private bool ParityDay = false;
     public float CurrentTime { get; set; }
     private int CurrentEventIndex = 0;
+    private string myReason = "";
     public static Action OnSceneChange;
     [System.Serializable]
     public struct TimetableEvent
@@ -70,7 +73,7 @@ public class Timer : MonoBehaviour
                 }
                 else
                 {
-                    StartDelay();
+                    StartDelay("because you have not completed the task");
                 }
                 OnSceneChange?.Invoke();
             
@@ -89,9 +92,16 @@ public class Timer : MonoBehaviour
         
     }
 
-    public void StartDelay()
+    private void OnDestroy()
     {
-        SceneManager.LoadScene("Delay"); 
+        
+    }
+
+    public void StartDelay(string reason)
+    {
+        SceneManager.LoadScene("Delay");
+        myReason=reason;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         isTimerWait = true;
         timerWaitStart = CurrentTime;
     }
@@ -110,13 +120,14 @@ public class Timer : MonoBehaviour
             SceneManager.LoadScene("GameOver");
             GameManager.Instance.UIActive(false);
         }
-
-
-        
-        
         
     }
-
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        
+        GameObject.FindGameObjectWithTag("DelayText").GetComponent<DelayText>().SetText(myReason);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
     private void UpdateTimerText()
     {
         // Formatowanie czasu na minuty:sekundy

@@ -28,9 +28,9 @@ class GameManager: MonoBehaviour
         return true;
     }
 
-    public void GetCaught()
+    public void GetCaught(string text)
     {
-        Timer.StartDelay();
+        Timer.StartDelay(text);
     }
 
     void Awake()
@@ -71,11 +71,11 @@ class GameManager: MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string name = SceneManager.GetActiveScene().name;
-        if ( name== "Meal"||name=="Work"||name=="Laundry")
+        if ( name== "Meal" || name=="Work" || name=="Laundry")
         {
-            IsSceneWorkDone = true;
+            IsSceneWorkDone = false;
         }
-        else IsSceneWorkDone = false;
+        else IsSceneWorkDone = true;
 
     }
 

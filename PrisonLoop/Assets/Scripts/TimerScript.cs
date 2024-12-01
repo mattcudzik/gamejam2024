@@ -62,10 +62,12 @@ public class Timer : MonoBehaviour
         {
             NormalSpeed();
         }
-
+        
         CurrentTime += Time.deltaTime * timerSpeed;
-        Debug.Log("Stan pracy");
-        Debug.Log(GameManager.Instance.IsSceneWorkDone);
+        if (GameManager.Instance.IsSceneWorkDone &&(Input.GetKeyDown(KeyCode.Y)|| Input.GetKey(KeyCode.Y)))
+        {
+            SkipTime();
+        }
         if (!isTimerWait)
         {
             if (CurrentEventIndex < timetable.Count && CurrentTime >= timetable[CurrentEventIndex].EventTime)
@@ -102,6 +104,11 @@ public class Timer : MonoBehaviour
                 NextDay();
             }
         }
+    }
+
+    private void SkipTime()
+    {
+        CurrentTime = timetable[CurrentEventIndex].EventTime - 2;
     }
 
     public void StartDelay(string reason)

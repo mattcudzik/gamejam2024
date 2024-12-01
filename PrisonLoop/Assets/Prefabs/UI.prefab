@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3409000183135861318}
   - component: {fileID: 3646389335698055219}
   m_Layer: 5
-  m_Name: Days
+  m_Name: Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 375}
+  m_AnchoredPosition: {x: 962, y: 226}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3409000183135861318
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10 Left
+  m_text: Press [Y] to Skip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -365,19 +365,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 9021695902152642392}
-  timerSpeed: 1
+  timerSpeed: 2
   startTime: 0
   timetable:
-  - SceneName: FreeTime
+  - SceneName: Yard
     EventTime: 360
   - SceneName: Meal
-    EventTime: 30
+    EventTime: 5
   - SceneName: Meal
     EventTime: 720
-  - SceneName: RoleCall
-    EventTime: 780
-  - SceneName: Work
+  - SceneName: Workshop
     EventTime: 180
+  myReason: 
 --- !u!1 &6929227848201063419
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,8 +442,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "TimeTable:\n08:00 - Roll call\n08:30 - Meal\n11:00 - Work\n14:00 - Free
-    Time\n20:00 - Meal\n21:00 - Lights out \n"
+  m_text: "TimeTable:\n08:05 - Meal\n11:00 - Work\n14:00 - Free Time\n20:00 - Meal\n21:00
+    - Lights out \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

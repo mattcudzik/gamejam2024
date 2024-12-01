@@ -20,7 +20,6 @@ class GameManager: MonoBehaviour
     public bool NextDay()
     {
         CurrentDay++;
-        Days.text = "Days left: " + (11 - CurrentDay);
         if (CurrentDay > MaxDay)
         {
             return false;
@@ -58,8 +57,7 @@ class GameManager: MonoBehaviour
     }
     private void OnSceneUnLoaded(Scene scene)
     {
-        Debug.Log("aaa");
-        
+       
     }
 
     public void UIActive(bool state)
@@ -70,7 +68,7 @@ class GameManager: MonoBehaviour
     private void WorkComplete()
     {
         IsSceneWorkDone = true;
-        Debug.Log("Work Complete");
+        Days.gameObject.SetActive(true);
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -78,10 +76,15 @@ class GameManager: MonoBehaviour
         if ( name== "Meal" || name=="Work" || name=="Laundry")
         {
             IsSceneWorkDone = false;
+            Days.gameObject.SetActive(false);
         }
-        else IsSceneWorkDone = true;
-        
+        else
+        {
+            IsSceneWorkDone = true;
+            Days.gameObject.SetActive(true);
+        }
         LevelManagerInstance = FindFirstObjectByType<LevelManager>();
+        
 
     }
 

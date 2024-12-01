@@ -47,9 +47,18 @@ public class Timer : MonoBehaviour
         CurrentTime += Time.deltaTime * timerSpeed;
         if (CurrentEventIndex < timetable.Count && CurrentTime >= timetable[CurrentEventIndex].EventTime)
         {
-            SceneManager.LoadScene(timetable[CurrentEventIndex].SceneName);
+            if (GameManager.Instance.IsSceneWorkDone)
+            {
+                SceneManager.LoadScene(timetable[CurrentEventIndex].SceneName);
+                
+                CurrentEventIndex++;
+            }
+            else
+            {
+                //SceneManager.LoadScene(""); TODO
+            }
             OnSceneChange?.Invoke();
-            CurrentEventIndex++;
+            
         }
         
         UpdateTimerText();

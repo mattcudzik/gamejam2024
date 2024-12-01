@@ -6,8 +6,8 @@ class GameManager: MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] public int TunelHp = 1000;
-    private bool IsSceneWorkDone{ get; set; } = false;
+    [SerializeField] public int[] TunelHp;
+    public bool IsSceneWorkDone{ get; set; } = false;
     public PlayerEq PlayerEq{get; set;}
     public LevelManager LevelManagerInstance{get; set;}
     [SerializeField] private GameObject UI;
@@ -15,7 +15,10 @@ class GameManager: MonoBehaviour
         
     void Awake()
     {
-        
+        TunelHp=new int[3];
+        TunelHp[0] = 1000;
+        TunelHp[1] = 1000;
+        TunelHp[2] = 1000;
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnLoaded;
         if (Instance == null)
@@ -27,6 +30,7 @@ class GameManager: MonoBehaviour
         {
             Destroy(gameObject);
         }
+        LevelManager.MiniGameCompleted += WorkComplete;
         
         PlayerEq = GetComponentInChildren<PlayerEq>();
         Timer = GetComponentInChildren<Timer>();
@@ -41,12 +45,7 @@ class GameManager: MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (SceneManager.GetActiveScene().name != "StartScene")
-        {
-            IsSceneWorkDone = false;
-            LevelManagerInstance = UnityEngine.Object.FindAnyObjectByType<LevelManager>();
-            LevelManager.MiniGameCompleted += WorkComplete;
-        }
+        IsSceneWorkDone = false;
     }
 
     public void StartGame()

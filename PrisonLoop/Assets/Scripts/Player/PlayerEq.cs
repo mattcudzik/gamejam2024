@@ -26,6 +26,12 @@ public class PlayerEq : MonoBehaviour
         return false;
     }
 
+    public void clear()
+    {
+        items = new List<ItemSO>();
+        currentCapacity = 0;
+    }
+
     public bool addItem(ItemSO item)
     {
         if (CanGetItem(item))

@@ -18,6 +18,7 @@ namespace Entities.States
             if (_entityMovement.HasReachedTarget())
             {
                GameManager.Instance.GetCaught("You have been caught");
+               GameManager.Instance.PlayerEq.clear();
             }
         }
 

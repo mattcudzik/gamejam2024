@@ -14,7 +14,7 @@ class GameManager: MonoBehaviour
     public int CurrentDay { get; set; } = 1;
     public int MaxDay { get; set; } = 10;
     [SerializeField] private GameObject UI;
-    public Timer Timer  {get; set;}
+    public Timer Timer;
     [SerializeField] public TextMeshProUGUI Days;
 
     public bool NextDay()
@@ -54,12 +54,12 @@ class GameManager: MonoBehaviour
         LevelManager.MiniGameCompleted += WorkComplete;
         
         PlayerEq = GetComponentInChildren<PlayerEq>();
-        Timer = GetComponentInChildren<Timer>();
+        //Timer = GetComponentInChildren<Timer>();
     }
     private void OnSceneUnLoaded(Scene scene)
     {
         Debug.Log("aaa");
-        LevelManagerInstance = FindFirstObjectByType<LevelManager>();
+        
     }
 
     public void UIActive(bool state)
@@ -80,6 +80,8 @@ class GameManager: MonoBehaviour
             IsSceneWorkDone = false;
         }
         else IsSceneWorkDone = true;
+        
+        LevelManagerInstance = FindFirstObjectByType<LevelManager>();
 
     }
 

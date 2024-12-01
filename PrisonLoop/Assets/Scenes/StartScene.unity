@@ -444,10 +444,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8065218835604712100, guid: d5b32cfb086f6d549b2e10ddf8fdec4d, type: 3}
-      propertyPath: timetable.Array.data[3].SceneName
-      value: Workshop
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

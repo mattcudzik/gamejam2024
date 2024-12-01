@@ -5,24 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Qscene.unity
-    guid: 85f7f40e065fcfe48a968846cc863deb
+    path: Assets/Scenes/StartScene.unity
+    guid: e2a1367ae8768224b8108283369e10ea
   - enabled: 1
     path: Assets/Scenes/Meal.unity
     guid: b2ebe22dbbbda3443843f903b66fd162
   - enabled: 1
-    path: Assets/Scenes/FreeTIme.unity
-    guid: ac01f44e4e10ce448bdf8d2047af6513
-  - enabled: 1
     path: Assets/Scenes/RollCall.unity
     guid: 8f8c9d95cf7652948b9d656f81a81ef7
   - enabled: 1
-    path: Assets/Scenes/Work.unity
-    guid: 7598c0e41a4cb1e4b8de80ad705fc9de
+    path: Assets/Scenes/Yard.unity
+    guid: 64954e752fd7e5a4eb270cef15d0be20
+  - enabled: 1
+    path: Assets/Scenes/Workshop.unity
+    guid: 2bb820f83c0ec2d41a70d975151b3dc4
   - enabled: 1
     path: Assets/Scenes/Laundry.unity
     guid: 087732052c8376e42b975acd692220f2

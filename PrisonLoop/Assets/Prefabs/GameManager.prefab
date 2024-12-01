@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TunelHp: 
   UI: {fileID: 2659756323983827640}
+  Timer: {fileID: 8065218835604712100}
   Days: {fileID: 7642581993070646071}
 --- !u!1001 &6383135712971846404
 PrefabInstance:
@@ -208,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3996977449031817632, guid: 8ae1270a9bd2cac4a921e518025c55d4, type: 3}
       propertyPath: timetable.Array.data[3].SceneName
-      value: Workhop
+      value: Workshop
       objectReference: {fileID: 0}
     - target: {fileID: 6396785234708193660, guid: 8ae1270a9bd2cac4a921e518025c55d4, type: 3}
       propertyPath: m_text
@@ -327,5 +328,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8065218835604712100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3996977449031817632, guid: 8ae1270a9bd2cac4a921e518025c55d4, type: 3}
+  m_PrefabInstance: {fileID: 6383135712971846404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea827b55f69d5e4d864622ddc05823d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
